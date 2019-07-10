@@ -1,0 +1,44 @@
+<style>
+    .delete:checked + span{
+        color:red;
+    }
+
+    .task-list{
+        list-style: georgian;
+    }
+</style>
+
+
+<form method="post" action="/task/add">
+    <label>Add task: </label>
+    <input type="text" name="task" placeholder="Add your task">
+    <input type="submit" value="Add">
+</form>
+
+hey there! Following tasks you have to complete...
+<form method="post" action="/task/del"></form>
+<ul>
+    <% tasks.forEach(function(task){ %>
+    <li>
+        <label>
+            <input type='checkbox' name="tasks" class="delete" value="<%= task %>">
+            <span><%= task %></span>
+        </label>
+    </li>
+    <% }) %>
+</ul>
+<input type="submit" value="Remove">
+</form>
+
+<form method="POST" accept="/call/add">
+    <label>Contact Name</label><br>
+    <input type="text" name="name" placeholder="contact name">
+    <br><br>
+    <label>Company</label><br>
+    <input type="text" name="company" placeholder="company name">
+    <br><br>
+    <label>Phone</label><br>
+    <input type="text" name="phone" placeholder="phone number">
+    <br><br>
+    <input type="submit" value="Submit">
+</form>
